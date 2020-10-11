@@ -2,14 +2,11 @@ class tic_tac:
     def __init__(self, player_1, player_2):
         self.player_names = [player_1, player_2]
         self.whose_turn = 0
+        self.get_first_player_name()
         self.f = []
         self.f.append(['_', '_', '_'])
         self.f.append(['_', '_', '_'])
         self.f.append(['_', '_', '_'])
-
-    '''def __setitem__(self, key1, value):
-        ans = value if isinstance(value, int) else value
-        self.f[key1] = ans'''
 
     def get_first_player_name(self):
         player_name = input('Who start the game? -')
@@ -17,6 +14,7 @@ class tic_tac:
             player_name = input("Please, enter first player name correctly. -")
         if player_name == self.player_names[1]:
             self.whose_turn = 1
+
 
     def __repr__(self):
         if isinstance(self, tic_tac):
@@ -46,9 +44,8 @@ class tic_tac:
         except ValueError:
             print("Wrong turn format, enter (column, row, <symbol>)")
 
-
-def whose_turn_now(self):
-    return
+    def whose_turn_now(self):
+        return self.player_names[self.whose_turn]
 
 
 if __name__ == '__main__':
