@@ -1,15 +1,7 @@
 class tic_tac:
     def __init__(self, player_1, player_2):
-        self.player_1 = str(player_1)
-        self.player_2 = str(player_2)
-        player_name = input('Who start the game? -')
-        while player_name != player_1 and player_name != player_2:
-            player_name = input("Please, enter first player name correctly. -")
-        if player_name == player_2:
-            self.whos_first = 1
-        else:
-            self.whos_first = 2
-        self.whos_turn = self.whos_first
+        self.player_names = [player_1, player_2]
+        self.whose_turn = 0
         self.f = []
         self.f.append(['_', '_', '_'])
         self.f.append(['_', '_', '_'])
@@ -18,6 +10,13 @@ class tic_tac:
     '''def __setitem__(self, key1, value):
         ans = value if isinstance(value, int) else value
         self.f[key1] = ans'''
+
+    def get_first_player_name(self):
+        player_name = input('Who start the game? -')
+        while self.player_names.count(player_name):
+            player_name = input("Please, enter first player name correctly. -")
+        if player_name == self.player_names[1]:
+            self.whose_turn = 1
 
     def __repr__(self):
         if isinstance(self, tic_tac):
@@ -36,13 +35,20 @@ class tic_tac:
             print()
 
     def make_turn(self, *args):
-        if len(args) < 3:
-            return "Wrong turn format"
-        else:
-            raw, column, value = args
-            self.f[raw][column] = value
-            self.whos_turn = 1 - self.whos_turn
-            self.print_field()
+        try:
+            if (1 <= args[0] <= 3) and (1 <= args[1] <= 3):
+                column, row, value = args
+                self.f[3 - row][column - 1] = value
+                self.whose_turn = 1 - self.whose_turn
+                self.print_field()
+            else:
+                print("Wrong turn format, enter (column, row, <symbol>)")
+        except ValueError:
+            print("Wrong turn format, enter (column, row, <symbol>)")
+
+
+def whose_turn_now(self):
+    return
 
 
 if __name__ == '__main__':
