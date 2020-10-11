@@ -1,5 +1,2 @@
-a = input()
-if a in range(1, 3):
-    print("yes")
-else:
-    print('no')
+a = input('asd %d zxc -' % 222)
+print(a)
