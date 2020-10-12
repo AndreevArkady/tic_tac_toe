@@ -1,2 +1,4 @@
-a = input('asd %d zxc -' % 222)
+a = False
+b = False
+a |= b
 print(a)
