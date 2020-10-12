@@ -110,4 +110,4 @@ class tic_tac:
 
 if __name__ == '__main__':
     print("Please, enter player names:")
-    a = tic_tac(input(), input())
+    game = tic_tac(input(), input())
